@@ -4,7 +4,7 @@
  * $Header: $
  */
 
-package composite.model;
+package proxy.model;
 
 import java.util.ArrayList;
 import java.util.List;

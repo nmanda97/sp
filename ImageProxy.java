@@ -11,31 +11,35 @@ package proxy.model;
  * @version $Revision: $, $Date: $, $Author: $
  */
 
-public class Image implements Element {
+public class ImageProxy implements Element {
   private String imageName;
+  Image image = null;
 
-  public Image(String imageName) {
+  public ImageProxy(String imageName) {
     this.imageName = imageName;
   }
 
   @Override
   public void print() {
-    System.out.println(imageName);
+    if (this.image == null) {
+      this.image = new Image(this.imageName);
+    }
+    this.image.print();
   }
 
   @Override
   public void add(Element element) {
-    System.out.println("ERORR");
+    System.out.println("ERORR - IMG PROXY");
   }
 
   @Override
   public void remove(Element element) {
-    System.out.println("ERORR");
+    System.out.println("ERORR - IMG PROXY");
   }
 
   @Override
   public Element getElement(int index) {
-    System.out.println("ERORR");
+    System.out.println("ERORR - IMG PROXY");
     return null;
   }
 }

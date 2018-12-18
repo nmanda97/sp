@@ -4,7 +4,7 @@
  * $Header: $
  */
 
-package composite.model;
+package proxy.model;
 
 /**
  * @author <a href="mailto:bario@ssi-schaefer-noell.com">bario</a>
@@ -41,3 +41,5 @@ public class Paragraph implements Element {
   }
 
 }
+// avem un paragraph care implementeaza interfata alignedparagraph care are metoda print 
+// creem clase 
