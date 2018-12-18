@@ -4,13 +4,19 @@
  * $Header: $
  */
 
-package bookproject.model;
+package composite.model;
 
 /**
  * @author <a href="mailto:bario@ssi-schaefer-noell.com">bario</a>
  * @version $Revision: $, $Date: $, $Author: $
  */
 
-public abstract class Element {
-  public abstract void print();
+public interface Element {
+  public void add(Element element);
+
+  public void remove(Element element);
+
+  public Element getElement(int index);
+
+  public void print();
 }

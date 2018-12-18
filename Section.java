@@ -14,21 +14,20 @@ import java.util.List;
  * @version $Revision: $, $Date: $, $Author: $
  */
 
-public class Book implements Element {
-  private Author author;
+public class Section implements Element {
+  private String title;
   private List<Element> content = new ArrayList<Element>();
-  private String name;
 
   public String getName() {
-    return name;
+    return title;
   }
 
   public void setName(String name) {
-    this.name = name;
+    this.title = name;
   }
 
-  public Book(String name) {
-    this.name = name;
+  public Section(String name) {
+    this.title = name;
   }
 
   @Override
@@ -53,11 +52,4 @@ public class Book implements Element {
     }
   }
 
-  public Author getAuthor() {
-    return author;
-  }
-
-  public void setAuthor(Author author) {
-    this.author = author;
-  }
 }
