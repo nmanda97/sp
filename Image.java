@@ -4,7 +4,7 @@
  * $Header: $
  */
 
-package proxy.model;
+package strategy.model;
 
 /**
  * @author <a href="mailto:bario@ssi-schaefer-noell.com">bario</a>

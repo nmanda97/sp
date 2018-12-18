@@ -4,7 +4,7 @@
  * $Header: $
  */
 
-package proxy.model;
+package strategy.model;
 
 import java.util.ArrayList;
 import java.util.List;
