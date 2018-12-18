@@ -4,7 +4,7 @@
  * $Header: $
  */
 
-package strategy.model;
+package visitor.model;
 
 /**
  * @author <a href="mailto:bario@ssi-schaefer-noell.com">bario</a>
@@ -37,5 +37,10 @@ public class Image implements Element {
   public Element getElement(int index) {
     System.out.println("ERORR");
     return null;
+  }
+
+  @Override
+  public void accept(Visitor visitor) {
+    visitor.visit(this);
   }
 }

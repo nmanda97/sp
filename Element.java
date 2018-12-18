@@ -4,7 +4,7 @@
  * $Header: $
  */
 
-package strategy.model;
+package visitor.model;
 
 /**
  * @author <a href="mailto:bario@ssi-schaefer-noell.com">bario</a>
@@ -19,4 +19,7 @@ public interface Element {
   public Element getElement(int index);
 
   public void print();
+
+  public void accept(Visitor visitor);
+
 }

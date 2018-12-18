@@ -4,7 +4,7 @@
  * $Header: $
  */
 
-package strategy.model;
+package visitor.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +49,14 @@ public class Section implements Element {
   public void print() {
     for (Element element : content) {
       element.print();
+    }
+  }
+
+  @Override
+  public void accept(Visitor visitor) {
+    visitor.visit(this);
+    for (Element element : content) {
+      element.accept(visitor);
     }
   }
 

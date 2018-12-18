@@ -4,7 +4,7 @@
  * $Header: $
  */
 
-package strategy.model;
+package visitor.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,5 +59,13 @@ public class Book implements Element {
 
   public void setAuthor(Author author) {
     this.author = author;
+  }
+
+  @Override
+  public void accept(Visitor visitor) {
+    for (Element element : content) {
+      element.accept(visitor);
+    }
+    visitor.visit(this);
   }
 }

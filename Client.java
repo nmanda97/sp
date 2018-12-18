@@ -4,12 +4,16 @@
  * $Header: $
  */
 
-package composite;
+package visitor;
 
-import composite.model.Book;
-import composite.model.Image;
-import composite.model.Paragraph;
-import composite.model.Section;
+import visitor.model.Book;
+import visitor.model.Image;
+import visitor.model.ImageProxy;
+import visitor.model.Paragraph;
+import visitor.model.Section;
+import visitor.model.Table;
+import visitor.model.pattern.BookStatistics;
+import visitor.model.pattern.Display;
 
 /**
  * @author <a href="mailto:bario@ssi-schaefer-noell.com">bario</a>
@@ -19,14 +23,33 @@ import composite.model.Section;
 public class Client {
 
   public static void main(String[] args) {
-    Book noapteBuna = new Book("Noapte buna copii.!");
-    Section cap1 = new Section("Capitolul 1.");
-    cap1.add(new Paragraph("Text 1"));
-    cap1.add(new Paragraph("Text 2"));
-    cap1.add(new Image("Image 1"));
-    noapteBuna.add(cap1);
-    noapteBuna.add(new Paragraph("Multumesc"));
-    noapteBuna.print();
+    Section cap1 = new Section("Capitolul 1");
+    Paragraph p1 = new Paragraph("Paragraph 1");
+    cap1.add(p1);
+    Paragraph p2 = new Paragraph("Paragraph 2");
+    cap1.add(p2);
+    Paragraph p3 = new Paragraph("Paragraph 3");
+    cap1.add(p3);
+    Paragraph p4 = new Paragraph("Paragraph 4");
+    cap1.add(p4);
+    cap1.add(new ImageProxy("ImageOne"));
+    cap1.add(new Image("ImageTwo"));
+    cap1.add(new Paragraph("Some text"));
+    cap1.add(new Table("Table 1"));
+
+    Section cap2 = new Section("Capitolul 1");
+    Paragraph p12 = new Paragraph("Paragraph 1");
+    cap2.add(p12);
+    Book book = new Book("Cartea mea");
+    book.add(cap1);
+    book.add(cap2);
+
+    BookStatistics stats = new BookStatistics();
+    book.accept(stats);
+    stats.printStatistics();
+
+    Display display = new Display();
+    cap1.accept(display);
   }
 
 }

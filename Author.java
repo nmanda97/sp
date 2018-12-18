@@ -4,7 +4,7 @@
  * $Header: $
  */
 
-package strategy.model;
+package visitor.model;
 
 /**
  * @author <a href="mailto:bario@ssi-schaefer-noell.com">bario</a>

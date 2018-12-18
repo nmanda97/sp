@@ -4,7 +4,7 @@
  * $Header: $
  */
 
-package strategy.model;
+package visitor.model;
 
 /**
  * @author <a href="mailto:bario@ssi-schaefer-noell.com">bario</a>
@@ -13,15 +13,6 @@ package strategy.model;
 
 public class Paragraph implements Element {
   private String text;
-  private AlignStrategy align;
-
-  public AlignStrategy getAlignStrategy() {
-    return align;
-  }
-
-  public void setAlignStrategy(AlignStrategy alignStrategy) {
-    this.align = alignStrategy;
-  }
 
   public Paragraph(String text) {
     this.text = text;
@@ -29,11 +20,7 @@ public class Paragraph implements Element {
 
   @Override
   public void print() {
-    if (align != null) {
-      align.print(text);
-    } else {
-      System.out.println(text);
-    }
+    System.out.println(text);
   }
 
   @Override
@@ -51,6 +38,11 @@ public class Paragraph implements Element {
   public Element getElement(int index) {
     System.out.println("ERORR");
     return null;
+  }
+
+  @Override
+  public void accept(Visitor visitor) {
+    visitor.visit(this);
   }
 
 }
